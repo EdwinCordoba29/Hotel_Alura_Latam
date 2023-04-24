@@ -1,20 +1,21 @@
 package views;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 public class Exito extends JDialog {
@@ -27,7 +28,7 @@ public class Exito extends JDialog {
 	public static void main(String[] args) {
 		try {
 			Exito dialog = new Exito();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,9 +67,10 @@ public class Exito extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
+					@Override
 					public void actionPerformed(ActionEvent e) {
 						dispose();//sirve para cerrar la ventana actual
-						MenuUsuario usuario = new MenuUsuario(); 
+						MenuUsuario usuario = new MenuUsuario();
 						usuario.setVisible(true);
 					}
 				});
