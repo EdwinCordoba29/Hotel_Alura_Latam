@@ -399,8 +399,6 @@ public class ReservasView extends JFrame {
 					Float.parseFloat(txtValor.getText()),
 					txtFormaPago.getSelectedItem().toString());
 			reservaController.guardarReserva(reserva);
-			JOptionPane.showMessageDialog(contentPane, "Reserva guardada correctamente con ID: " + reserva.getId(),
-					"Reserva",JOptionPane.INFORMATION_MESSAGE);
 			RegistroHuesped registro = new RegistroHuesped(reserva.getId());
 			registro.setVisible(true);
 			dispose();

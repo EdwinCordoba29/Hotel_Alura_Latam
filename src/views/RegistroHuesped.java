@@ -363,7 +363,10 @@ public class RegistroHuesped extends JFrame {
 				java.sql.Date.valueOf(fechaNacimiento), txtNacionalidad.getSelectedItem().toString(),
 				txtTelefono.getText(),Integer.valueOf(txtNreserva.getText()));
 		huespedController.guardarHuesped(huesped);
-		JOptionPane.showMessageDialog(contentPane, "Huesped guardado correctamente", "Registro",
+		JOptionPane.showMessageDialog(contentPane, "Huesped guardado correctamente\nHuesped: " +
+				huesped.getNombre() + " " + huesped.getApellido() + 
+				"\nReserva: " + huesped.getIdReserva(),
+				"Registro",
 				JOptionPane.INFORMATION_MESSAGE);
 		dispose();
 	}
