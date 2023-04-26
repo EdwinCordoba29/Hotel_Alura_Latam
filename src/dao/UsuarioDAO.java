@@ -48,12 +48,18 @@ public class UsuarioDAO {
 		try {
 			String sql = "INSERT INTO usuarios(usuario, clave, tipo_usuario)"
 					+ "VALUES(?, ?, ?)";
-			final PreparedStatement ps = con.prepareStatement(sql);
+			final PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			try(ps){
 				ps.setString(1, usuario.getUsuario());
 				ps.setString(2, usuario.getClave());
 				ps.setString(3, usuario.getTipoUsuario());
 				ps.execute();
+				final ResultSet rs = ps.getGeneratedKeys();
+				try(rs){
+					if(rs.next()) {
+						usuario.setId(rs.getInt(1));
+					}
+				}
 			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error usuario no registrado", "Error",
@@ -72,7 +78,7 @@ public class UsuarioDAO {
 				final ResultSet rs = ps.executeQuery();
 				try(rs){
 					if(rs.next()) {
-						user = rs.getString(0);
+						user = rs.getString(1);
 					}
 				}
 			}

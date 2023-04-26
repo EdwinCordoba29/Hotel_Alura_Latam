@@ -40,9 +40,10 @@ public class Usuarios extends JFrame {
 	private JPasswordField txtContrasenia;
 	int xMouse, yMouse;
 	private JLabel lblSalir;
-	private JLabel lblAtras;
+	//private JLabel lblAtras;
 	private JComboBox<String> cbTipoUsuario;
 	private UsuarioController usuarioController;
+	private Exito exito;
 
 	/**
 	 * Launch the application.
@@ -269,7 +270,7 @@ public class Usuarios extends JFrame {
 			JOptionPane.showMessageDialog(this, "Los campos de usuario y contraseña son obligatorios");
 			return;
 		}
-		if(usuarioController != null) {
+		if(txtUsuario.getText().equals(usuarioController.buscarUsuario(txtUsuario.getText()))) {
 			JOptionPane.showMessageDialog(contentPane, "El usuario ya existe", "Registro usuario",JOptionPane.WARNING_MESSAGE);
 			return;
 		}
@@ -277,8 +278,10 @@ public class Usuarios extends JFrame {
 				String.valueOf(txtContrasenia.getPassword()),
 				cbTipoUsuario.getSelectedItem().toString());
 		usuarioController.guardarUsuario(usuario);
-		JOptionPane.showMessageDialog(this, "Usuario registrado correctamente", "Registro usuario",
+		JOptionPane.showMessageDialog(this, "Usuario registrado correctamente con ID: " + usuario.getId(), "Registro usuario",
 				JOptionPane.INFORMATION_MESSAGE);
+//		exito = new Exito();
+//		exito.setVisible(true);
 	}
 
 	private void headerMouseDragged(java.awt.event.MouseEvent evt) {
