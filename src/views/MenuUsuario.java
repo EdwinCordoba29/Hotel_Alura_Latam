@@ -30,8 +30,6 @@ public class MenuUsuario extends JFrame {
 	private JPanel contentPane;
 	int xMouse, yMouse;
 	private JLabel labelExit;
-	private JLabel labelRegistro;
-	private JPanel btnUsuario;
 
 	/**
 	 * Launch the application.
@@ -92,7 +90,7 @@ public class MenuUsuario extends JFrame {
 		lblNewLabel_2.setBounds(50, 58, 150, 150);
 		panelMenu.add(lblNewLabel_2);
 		lblNewLabel_2.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/aH-150px.png")));
-
+		
 		JPanel btnRegistro = new JPanel();
 		btnRegistro.addMouseListener(new MouseAdapter() {
 			@Override
@@ -109,6 +107,7 @@ public class MenuUsuario extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				ReservasView reservas = new ReservasView();
 				reservas.setVisible(true);
+				dispose();
 			}
 		});
 		btnRegistro.setBounds(0, 255, 257, 56);
@@ -116,7 +115,7 @@ public class MenuUsuario extends JFrame {
 		panelMenu.add(btnRegistro);
 		btnRegistro.setLayout(null);
 
-		labelRegistro = new JLabel("Registro de reservas");
+		JLabel labelRegistro = new JLabel("Registro de reservas");
 		labelRegistro.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/reservado.png")));
 		labelRegistro.setForeground(SystemColor.text);
 		labelRegistro.setBounds(25, 11, 205, 34);
@@ -140,6 +139,7 @@ public class MenuUsuario extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				Busqueda busqueda = new Busqueda();
 				busqueda.setVisible(true);
+				dispose();
 			}
 		});
 		btnBusqueda.setBounds(0, 312, 257, 56);
@@ -158,38 +158,42 @@ public class MenuUsuario extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(26, 219, 201, 2);
 		panelMenu.add(separator);
+		
+		if("Administrador".equals(Login.getTipoUsuario())) {
+			JPanel btnUsuario = new JPanel();
+			btnUsuario.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					Usuarios usuarios = new Usuarios();
+					usuarios.setVisible(true);
+					dispose();
+				}
 
-		btnUsuario = new JPanel();
-		btnUsuario.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Usuarios usuarios = new Usuarios();
-				usuarios.setVisible(true);
-			}
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btnUsuario.setBackground(new Color(118, 187, 223));
+				}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnUsuario.setBackground(new Color(118, 187, 223));
-			}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnUsuario.setBackground(new Color(12, 138, 199));
+				}
+			});
+			btnUsuario.setBackground(new Color(12, 138, 199));
+			btnUsuario.setBounds(0, 369, 257, 56);
+			panelMenu.add(btnUsuario);
+			btnUsuario.setLayout(null);
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnUsuario.setBackground(new Color(12, 138, 199));
-			}
-		});
-		btnUsuario.setBackground(new Color(12, 138, 199));
-		btnUsuario.setBounds(0, 369, 257, 56);
-		panelMenu.add(btnUsuario);
-		btnUsuario.setLayout(null);
+			JLabel lblUsuario = new JLabel("Usuarios");
+			lblUsuario.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/usuario31x31.png")));
+			lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
+			lblUsuario.setForeground(Color.WHITE);
+			lblUsuario.setFont(new Font("Roboto", Font.PLAIN, 18));
+			lblUsuario.setBounds(27, 11, 200, 34);
+			btnUsuario.add(lblUsuario);
 
-		JLabel lblUsuario = new JLabel("Usuarios");
-		lblUsuario.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/usuario31x31.png")));
-		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
-		lblUsuario.setForeground(Color.WHITE);
-		lblUsuario.setFont(new Font("Roboto", Font.PLAIN, 18));
-		lblUsuario.setBounds(27, 11, 200, 34);
-		btnUsuario.add(lblUsuario);
-
+		}
+		
 		header.setLayout(null);
 		header.setBackground(Color.WHITE);
 		header.setBounds(0, 0, 944, 36);
@@ -297,9 +301,5 @@ public class MenuUsuario extends JFrame {
 
 		Point punto = MouseInfo.getPointerInfo().getLocation();
 		this.setLocation(punto.x - xMouse, punto.y - yMouse);
-	}
-
-	public JPanel getBtnUsuario() {
-		return btnUsuario;
 	}
 }

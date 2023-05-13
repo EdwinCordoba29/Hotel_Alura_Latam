@@ -9,7 +9,17 @@ public class Reserva {
 	private float valor;
 	private String formaDePago;
 	
+	public Reserva() {}
+	
 	public Reserva(Date fechaEntrada, Date fechaSalida, float valor, String formaDePago) {
+		this.fechaEntrada = fechaEntrada;
+		this.fechaSalida = fechaSalida;
+		this.valor = valor;
+		this.formaDePago = formaDePago;
+	}
+	
+	public Reserva(int id, Date fechaEntrada, Date fechaSalida, float valor, String formaDePago) {
+		this.id = id;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.valor = valor;

@@ -170,9 +170,9 @@ public class ReservasView extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-//				MenuPrincipal principal = new MenuPrincipal();
-//				principal.setVisible(true);
 				if(UtilSalir.confirmarSalir(contentPane) == 0) {
+					MenuUsuario usuario = new MenuUsuario();
+					usuario.setVisible(true);
 					dispose();
 				}
 			}

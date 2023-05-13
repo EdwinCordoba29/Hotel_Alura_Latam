@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -41,6 +42,7 @@ public class Login extends JFrame {
 	private UsuarioController usuarioController;
 	private Usuario usuario;
 	private MenuUsuario menu;
+	private static String tipoUsuario;
 
 	/**
 	 * Launch the application.
@@ -66,6 +68,7 @@ public class Login extends JFrame {
 		this.usuarioController = new UsuarioController();
 		setMinimumSize(new Dimension(788, 527));
 		setMaximumSize(new Dimension(788, 527));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setResizable(false);
 		setUndecorated(true);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -264,19 +267,10 @@ public class Login extends JFrame {
 		usuario = usuarioController.validarUsuario(usua, clave);
 
 		if (usuario.getUsuario() != null) {
-			switch (usuario.getTipoUsuario()) {
-			case "Administrador":
-				menu = new MenuUsuario();
-				menu.setVisible(true);
-				dispose();
-				break;
-			case "Empleado":
-				menu = new MenuUsuario();
-				menu.getBtnUsuario().setVisible(false);
-				menu.setVisible(true);
-				dispose();
-				break;
-			}
+			tipoUsuario = usuario.getTipoUsuario();
+			menu = new MenuUsuario();
+			menu.setVisible(true);
+			dispose();
 		} else {
 			JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
 		}
@@ -294,5 +288,10 @@ public class Login extends JFrame {
 		
 		Point punto = MouseInfo.getPointerInfo().getLocation();
 		this.setLocation(punto.x - xMouse, punto.y - yMouse);
+	}
+	
+	//Propiedades
+	public static String getTipoUsuario() {
+		return tipoUsuario;
 	}
 }

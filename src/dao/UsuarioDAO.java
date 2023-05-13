@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
-
 import modelo.Usuario;
 
 public class UsuarioDAO {
@@ -86,5 +84,58 @@ public class UsuarioDAO {
 			throw new RuntimeException(e);
 		}
 		return user;
+	}
+
+	public List<Usuario> listarUsuarios() {
+		List<Usuario> lista = new ArrayList<>();
+		String sql = "SELECT id, usuario, clave, tipo_usuario FROM usuarios";
+		try {
+			final PreparedStatement ps = con.prepareStatement(sql);
+			try(ps){
+				final ResultSet rs = ps.executeQuery();
+				try(rs){
+					while(rs.next()) {
+						Usuario usuario = new Usuario();
+						usuario.setId(rs.getInt("id"));
+						usuario.setUsuario(rs.getString("usuario"));
+						usuario.setClave(rs.getString("clave"));
+						usuario.setTipoUsuario(rs.getString("tipo_usuario"));
+						lista.add(usuario);
+					}
+				}
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return lista;
+	}
+
+	public void eliminarUsuario(Integer id) {
+		String sql = "DELETE FROM usuarios WHERE id = ?";
+		try {
+			final PreparedStatement ps = con.prepareStatement(sql);
+			try(ps){
+				ps.setInt(1, id);
+				ps.execute();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void modificarUsuario(Usuario usuario) {
+		String sql = "UPDATE usuarios SET usuario = ?, clave = ?, tipo_usuario = ? WHERE id = ?";
+		try {
+			final PreparedStatement ps = con.prepareStatement(sql);
+			try(ps){
+				ps.setString(1, usuario.getUsuario());
+				ps.setString(2, usuario.getClave());
+				ps.setString(3, usuario.getTipoUsuario());
+				ps.setInt(4, usuario.getId());
+				ps.execute();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}		
 	}
 }

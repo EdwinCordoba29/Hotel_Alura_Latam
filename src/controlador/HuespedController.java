@@ -1,10 +1,12 @@
 package controlador;
 
+import java.util.List;
+
 import dao.HuespedDAO;
 import factory.ConnectionFactory;
 import modelo.Huesped;
 
-public class HuespedController {
+public class HuespedController{
 	private HuespedDAO huespedDAO;
 	
 	public HuespedController() {
@@ -14,5 +16,17 @@ public class HuespedController {
 	
 	public void guardarHuesped(Huesped huesped) {
 		huespedDAO.guardarHuesped(huesped);
+	}
+
+	public List<Huesped> listarHuespedes() {
+		return huespedDAO.listarHuespedes();
+	}
+
+	public void eliminarReserva(Integer id) {
+		huespedDAO.eliminarReserva(id);	
+	}
+
+	public void modificarHuesped(Huesped huesped) {
+		huespedDAO.modificarHuesped(huesped);
 	}
 }

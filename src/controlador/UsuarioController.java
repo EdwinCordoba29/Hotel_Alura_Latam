@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.List;
+
 import dao.UsuarioDAO;
 import factory.ConnectionFactory;
 import modelo.Usuario;
@@ -29,5 +31,19 @@ public class UsuarioController {
 	
 	public String buscarUsuario(String usuario) {
 		return usuarioDAO.buscarUsuario(usuario);
+	}
+
+	public List<Usuario> listarUsuarios() {
+		return usuarioDAO.listarUsuarios();
+	}
+
+	public void eliminarUsuario(Integer id) {
+		usuarioDAO.eliminarUsuario(id);	
+	}
+
+	public void modificarUsuario(Usuario usuario) {
+		String pass = new EncryptPassword().passwordEncrypt(usuario.getClave());
+		usuario.setClave(pass);
+		usuarioDAO.modificarUsuario(usuario);
 	}
 }

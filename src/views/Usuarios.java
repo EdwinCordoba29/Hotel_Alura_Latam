@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -43,7 +44,6 @@ public class Usuarios extends JFrame {
 	//private JLabel lblAtras;
 	private JComboBox<String> cbTipoUsuario;
 	private UsuarioController usuarioController;
-	private Exito exito;
 
 	/**
 	 * Launch the application.
@@ -68,6 +68,7 @@ public class Usuarios extends JFrame {
 		usuarioController = new UsuarioController();
 		setMinimumSize(new Dimension(910, 480));
 		setMaximumSize(new Dimension(910, 480));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setUndecorated(true);
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 480);
@@ -76,6 +77,7 @@ public class Usuarios extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JPanel panel = new JPanel();
 		panel.setBorder(null);
@@ -220,8 +222,8 @@ public class Usuarios extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (UtilSalir.confirmarSalir(contentPane) == 0) {
-//					Login login = new Login();
-//					login.setVisible(true);
+					MenuUsuario usuario = new MenuUsuario();
+					usuario.setVisible(true);
 					dispose();
 				}
 			}
@@ -280,8 +282,6 @@ public class Usuarios extends JFrame {
 		usuarioController.guardarUsuario(usuario);
 		JOptionPane.showMessageDialog(this, "Usuario registrado correctamente con ID: " + usuario.getId(), "Registro usuario",
 				JOptionPane.INFORMATION_MESSAGE);
-//		exito = new Exito();
-//		exito.setVisible(true);
 	}
 
 	private void headerMouseDragged(java.awt.event.MouseEvent evt) {

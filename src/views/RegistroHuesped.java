@@ -43,7 +43,7 @@ public class RegistroHuesped extends JFrame {
 	private JDateChooser txtFechaN;
 	private JComboBox<Format> txtNacionalidad;
 	private JLabel labelExit;
-	//private JLabel labelAtras;
+	// private JLabel labelAtras;
 	int xMouse, yMouse;
 	private HuespedController huespedController;
 
@@ -71,8 +71,7 @@ public class RegistroHuesped extends JFrame {
 		huespedController = new HuespedController();
 		setMinimumSize(new Dimension(910, 634));
 		setMaximumSize(new Dimension(910, 634));
-		setIconImage(
-				Toolkit.getDefaultToolkit().getImage(RegistroHuesped.class.getResource("/imagenes/lOGO-50PX.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 634);
 		contentPane = new JPanel();
@@ -300,10 +299,9 @@ public class RegistroHuesped extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-//				MenuPrincipal principal = new MenuPrincipal();
-//				principal.setVisible(true);
-//				dispose();
-				if(UtilSalir.confirmarSalir(contentPane) == 0) {
+				if (UtilSalir.confirmarSalir(contentPane) == 0) {
+					MenuUsuario usuario = new MenuUsuario();
+					usuario.setVisible(true);
 					dispose();
 				}
 			}
@@ -329,45 +327,46 @@ public class RegistroHuesped extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setForeground(Color.black);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-		
-				JPanel header = new JPanel();
-				header.setBounds(0, 0, 910, 36);
-				header.addMouseMotionListener(new MouseMotionAdapter() {
-					@Override
-					public void mouseDragged(MouseEvent e) {
-						headerMouseDragged(e);
 
-					}
-				});
-				header.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mousePressed(MouseEvent e) {
-						headerMousePressed(e);
-					}
-				});
-				header.setLayout(null);
-				header.setBackground(SystemColor.text);
-				header.setOpaque(false);
-				header.setBounds(0, 0, 910, 36);
-				contentPane.add(header);
+		JPanel header = new JPanel();
+		header.setBounds(0, 0, 910, 36);
+		header.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				headerMouseDragged(e);
+
+			}
+		});
+		header.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				headerMousePressed(e);
+			}
+		});
+		header.setLayout(null);
+		header.setBackground(SystemColor.text);
+		header.setOpaque(false);
+		header.setBounds(0, 0, 910, 36);
+		contentPane.add(header);
 	}
 
 	private void guardarHuesped() {
-		if(txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() ||
-				txtFechaN.getDate() == null || txtTelefono.getText().isEmpty()) {
+		if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() || txtFechaN.getDate() == null
+				|| txtTelefono.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(contentPane, "Debes llenar todos los campos.");
 			return;
 		}
-		String fechaNacimiento = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
+		String fechaNacimiento = ((JTextField) txtFechaN.getDateEditor().getUiComponent()).getText();
 		Huesped huesped = new Huesped(txtNombre.getText(), txtApellido.getText(),
 				java.sql.Date.valueOf(fechaNacimiento), txtNacionalidad.getSelectedItem().toString(),
-				txtTelefono.getText(),Integer.valueOf(txtNreserva.getText()));
+				txtTelefono.getText(), Integer.valueOf(txtNreserva.getText()));
 		huespedController.guardarHuesped(huesped);
-		JOptionPane.showMessageDialog(contentPane, "Huesped guardado correctamente\nHuesped: " +
-				huesped.getNombre() + " " + huesped.getApellido() + 
-				"\nReserva: " + huesped.getIdReserva(),
-				"Registro",
-				JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(
+				contentPane, "Huesped guardado correctamente\nHuesped: " + huesped.getNombre() + " "
+				+ huesped.getApellido() + "\nReserva: " + huesped.getIdReserva(),
+				"Registro", JOptionPane.INFORMATION_MESSAGE);
+		MenuUsuario usuario = new MenuUsuario();
+		usuario.setVisible(true);
 		dispose();
 	}
 

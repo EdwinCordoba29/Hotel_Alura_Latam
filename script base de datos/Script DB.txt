@@ -15,7 +15,7 @@ nombre VARCHAR(100),
 apellido VARCHAR(100),
 fecha_de_nacimiento DATE,
 nacionalidad VARCHAR(50),
-telefono INT,
+telefono VARCHAR(10),
 id_reserva INT)
 ENGINE=InnoDB;
 
