@@ -5,14 +5,27 @@
 </p>
 
 ---
-##  Primeros Pasos:
+##  📋 Índice
+#### 🔹 Descripción del proyecto
+#### 🔹 Script base de datos
+#### 🔹 Ejecutable
+#### 🔹 Funcionalidades
+#### 🔹 Tecnologías utilizadas
+#### 🔹 Desarrollador
 
+---
+## 📑 Descripción del proyecto
+Aplicación de escritorio para hotel que permite crear empleados, crear reservas, huespedes y calcula el valor que se tiene que pagar por el hospedaje. Cuenta con una pestaña de busqueda donde se pueden consultar las reservar, los huespedes, los usuarios y se pueden editar o eliminar los registros.
 
-#### 🔹 Marca este proyecto con una ⭐
-#### 🔹 Sigue las orientaciones que tenemos en este repositorio. 📚
-#### 🔹 ¡Visita la página del desafío haciendo clic aquí! [Link do Challenge](https://www.aluracursos.com/challenges/oracle-one-back-end/hotelalura) 📃
-</br>
+---
+## Script base de datos
+Para crear la base de datos se utiliza MySql y se ejecuta el script de la carpeta 📁 Script base de datos.
 
+<p align="center" >
+     <img width="300" heigth="300" src="https://user-images.githubusercontent.com/91544872/189419040-c093db78-c970-4960-8aca-ffcc11f7ffaf.png">
+</p>
+
+---
 ## 🖥️ Tecnologías Utilizadas:
 
 - Java
