@@ -13,7 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -32,6 +33,7 @@ import com.toedter.calendar.JDateChooser;
 
 import controlador.ReservaController;
 import modelo.Reserva;
+import utilidades.CalcularValorReserva;
 import utilidades.UtilSalir;
 
 @SuppressWarnings("serial")
@@ -46,6 +48,7 @@ public class ReservasView extends JFrame {
 	private JLabel labelExit;
 	//private JLabel labelAtras;
 	private ReservaController reservaController;
+	private CalcularValorReserva calcularValorReserva; 
 
 	/**
 	 * Launch the application.
@@ -70,6 +73,7 @@ public class ReservasView extends JFrame {
 	public ReservasView() {
 		super("Reserva");
 		reservaController = new ReservaController();
+		calcularValorReserva = new CalcularValorReserva();
 		setMinimumSize(new Dimension(910, 560));
 		setMaximumSize(new Dimension(910, 560));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ReservasView.class.getResource("/imagenes/aH-40px.png")));
@@ -260,6 +264,7 @@ public class ReservasView extends JFrame {
 		// Campos que guardaremos en la base de datos
 		txtFechaEntrada = new JDateChooser();
 		txtFechaEntrada.getCalendarButton().setBackground(SystemColor.textHighlight);
+		txtFechaEntrada.setMinSelectableDate(new Date());
 		txtFechaEntrada.getCalendarButton()
 				.setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
 		txtFechaEntrada.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -277,6 +282,7 @@ public class ReservasView extends JFrame {
 		panel.add(txtFechaEntrada);
 
 		txtFechaSalida = new JDateChooser();
+		txtFechaSalida.setMinSelectableDate(new Date());
 		txtFechaSalida.getCalendarButton()
 				.setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
 		txtFechaSalida.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 11));
@@ -371,21 +377,28 @@ public class ReservasView extends JFrame {
 //		}
 //	}
 	
+//	private void calcularValor(JDateChooser txtFechaE, JDateChooser txtFechaS) {
+//		if(txtFechaE.getDate() != null && txtFechaS.getDate() != null) {
+//			Calendar inicio = txtFechaE.getCalendar();
+//			Calendar fin = txtFechaS.getCalendar();
+//			int dias = 0;
+//			int valorDia = 50000;
+//			int valor;
+//			
+//			while(inicio.before(fin) || inicio.equals(fin)) {
+//				dias++;
+//				inicio.add(Calendar.DATE, 1);
+//			}
+//			valor = dias * valorDia;
+//			String valorTotal = String.valueOf(valor);
+//			txtValor.setText(valorTotal);
+//		}
+//	}
+	
 	private void calcularValor(JDateChooser txtFechaE, JDateChooser txtFechaS) {
 		if(txtFechaE.getDate() != null && txtFechaS.getDate() != null) {
-			Calendar inicio = txtFechaE.getCalendar();
-			Calendar fin = txtFechaS.getCalendar();
-			int dias = 0;
-			int valorDia = 50000;
-			int valor;
-			
-			while(inicio.before(fin) || inicio.equals(fin)) {
-				dias++;
-				inicio.add(Calendar.DATE, 1);
-			}
-			valor = dias * valorDia;
-			String valorTotal = String.valueOf(valor);
-			txtValor.setText(valorTotal);
+			String valor = calcularValorReserva.calcularValor(txtFechaE.getDate(), txtFechaS.getDate());
+			txtValor.setText(valor);
 		}
 	}
 	

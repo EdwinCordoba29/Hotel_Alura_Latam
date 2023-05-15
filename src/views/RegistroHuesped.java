@@ -11,7 +11,6 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.text.Format;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -31,6 +30,8 @@ import com.toedter.calendar.JDateChooser;
 import controlador.HuespedController;
 import modelo.Huesped;
 import utilidades.UtilSalir;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class RegistroHuesped extends JFrame {
@@ -41,7 +42,7 @@ public class RegistroHuesped extends JFrame {
 	private JTextField txtTelefono;
 	private JTextField txtNreserva;
 	private JDateChooser txtFechaN;
-	private JComboBox<Format> txtNacionalidad;
+	private JComboBox<String> txtNacionalidad;
 	private JLabel labelExit;
 	// private JLabel labelAtras;
 	int xMouse, yMouse;
@@ -116,6 +117,21 @@ public class RegistroHuesped extends JFrame {
 //		btnAtras.add(labelAtras);
 
 		txtNombre = new JTextField();
+		txtNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			    int key = e.getKeyChar();
+
+			    boolean mayusculas = key >= 65 && key <= 90;
+			    boolean minusculas = key >= 97 && key <= 122;
+			    boolean espacio = key == 32;
+			            
+			     if (!(minusculas || mayusculas || espacio))
+			    {
+			        e.consume();
+			    }
+			}
+		});
 		txtNombre.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtNombre.setBounds(560, 135, 285, 33);
 		txtNombre.setBackground(Color.WHITE);
@@ -124,6 +140,21 @@ public class RegistroHuesped extends JFrame {
 		contentPane.add(txtNombre);
 
 		txtApellido = new JTextField();
+		txtApellido.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			    int key = e.getKeyChar();
+
+			    boolean mayusculas = key >= 65 && key <= 90;
+			    boolean minusculas = key >= 97 && key <= 122;
+			    boolean espacio = key == 32;
+			            
+			     if (!(minusculas || mayusculas || espacio))
+			    {
+			        e.consume();
+			    }
+			}
+		});
 		txtApellido.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtApellido.setBounds(560, 204, 285, 33);
 		txtApellido.setColumns(10);
@@ -139,11 +170,11 @@ public class RegistroHuesped extends JFrame {
 		txtFechaN.setDateFormatString("yyyy-MM-dd");
 		contentPane.add(txtFechaN);
 
-		txtNacionalidad = new JComboBox<Format>();
+		txtNacionalidad = new JComboBox<String>();
 		txtNacionalidad.setBounds(560, 350, 289, 36);
 		txtNacionalidad.setBackground(SystemColor.text);
 		txtNacionalidad.setFont(new Font("Roboto", Font.PLAIN, 16));
-		txtNacionalidad.setModel(new DefaultComboBoxModel(new String[] { "afgano-afgana", "alemán-", "alemana",
+		txtNacionalidad.setModel(new DefaultComboBoxModel<String>(new String[] { "afgano-afgana", "alemán-", "alemana",
 				"árabe-árabe", "argentino-argentina", "australiano-australiana", "belga-belga", "boliviano-boliviana",
 				"brasileño-brasileña", "camboyano-camboyana", "canadiense-canadiense", "chileno-chilena", "chino-china",
 				"colombiano-colombiana", "coreano-coreana", "costarricense-costarricense", "cubano-cubana",
@@ -192,6 +223,23 @@ public class RegistroHuesped extends JFrame {
 		contentPane.add(lblTelefono);
 
 		txtTelefono = new JTextField();
+		txtTelefono.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			    int key = e.getKeyChar();
+
+			    boolean numeros = key >= 48 && key <= 57;
+			        
+			    if (!numeros)
+			    {
+			        e.consume();
+			    }
+
+			    if (txtTelefono.getText().trim().length() == 10) {
+			        e.consume();
+			    }
+			}
+		});
 		txtTelefono.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtTelefono.setBounds(560, 424, 285, 33);
 		txtTelefono.setColumns(10);

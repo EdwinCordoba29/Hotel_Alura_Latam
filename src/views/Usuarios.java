@@ -30,7 +30,6 @@ import javax.swing.border.LineBorder;
 
 import controlador.UsuarioController;
 import modelo.Usuario;
-import utilidades.UtilAjustarImagen;
 import utilidades.UtilSalir;
 
 @SuppressWarnings("serial")
@@ -129,8 +128,8 @@ public class Usuarios extends JFrame {
 //		lblAtras.setFont(new Font("Roboto", Font.PLAIN, 23));
 
 		JLabel imagenFondo = new JLabel("");
-		imagenFondo.setBounds(0, 158, 450, 300);
-		UtilAjustarImagen.AjustarImagenLabel(imagenFondo, "src/imagenes/registro.png");
+		imagenFondo.setIcon(new ImageIcon(Usuarios.class.getResource("/imagenes/reservas-img-3.png")));
+		imagenFondo.setBounds(0, 158, 470, 300);
 		panel_1.add(imagenFondo);
 
 		JLabel lblTitulo = new JLabel("REGISTRO USUARIOS");

@@ -10,11 +10,15 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
+import javax.swing.DefaultCellEditor;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -37,11 +41,19 @@ import controlador.*;
 import modelo.Huesped;
 import modelo.Reserva;
 import modelo.Usuario;
+import utilidades.CalcularValorReserva;
+import utilidades.CalendarCellEditor;
 import utilidades.UtilSalir;
+import utilidades.ValidarNumero;
+import utilidades.ValidarTexto;
+
 import javax.swing.event.ChangeListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 
 @SuppressWarnings("serial")
 public class Busqueda extends JFrame {
@@ -61,6 +73,8 @@ public class Busqueda extends JFrame {
 	private ReservaController reservaController; 
 	private HuespedController huespedController;
 	private JTabbedPane panel; 
+	private CalcularValorReserva calcularValorReserva;
+	private boolean cargarDatos = false;
 	/**
 	 * Launch the application.
 	 */
@@ -85,6 +99,7 @@ public class Busqueda extends JFrame {
 		usuarioController = new UsuarioController();
 		reservaController = new ReservaController();
 		huespedController = new HuespedController();
+		calcularValorReserva = new CalcularValorReserva();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 571);
@@ -175,10 +190,11 @@ public class Busqueda extends JFrame {
 		tbReservas = new JTable();
 		tbReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbReservas.setFont(new Font("Roboto", Font.PLAIN, 16));
+		tbReservas.setRowHeight(20);
 		modeloReserva = new DefaultTableModel() {
 			@Override
 			public boolean isCellEditable(int row, int column) {
-				return column != 0;
+				return !(column == 0 || column == 3);
 			}
 		};
 		modeloReserva.addColumn("Numero de Reserva");
@@ -187,6 +203,21 @@ public class Busqueda extends JFrame {
 		modeloReserva.addColumn("Valor");
 		modeloReserva.addColumn("Forma de Pago");
 		tbReservas.setModel(modeloReserva);
+		tbReservas.getColumnModel().getColumn(1).setCellEditor(new CalendarCellEditor());
+		tbReservas.getColumnModel().getColumn(2).setCellEditor(new CalendarCellEditor());
+		tbReservas.getColumnModel().getColumn(3).setCellEditor(new ValidarNumero());
+		tbReservas.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(formaDePago()));
+		tbReservas.getModel().addTableModelListener(new TableModelListener() {
+		    public void tableChanged(TableModelEvent e) {
+		    	if(cargarDatos) {
+		    		return;
+		    	}
+		        int col = e.getColumn();
+		        if (col == 1 || col == 2) {
+		        	calcularValor();
+		        }
+		    }
+		});
 		JScrollPane scroll_tableReservas = new JScrollPane(tbReservas);
 		panel.addTab("Reservas", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")), 
 				scroll_tableReservas,null);
@@ -194,6 +225,7 @@ public class Busqueda extends JFrame {
 		tbHuespedes = new JTable();
 		tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 16));
+		tbHuespedes.setRowHeight(20);
 		modeloHuesped = new DefaultTableModel() {
 		    @Override
 		    public boolean isCellEditable(int fila, int columna) {
@@ -208,6 +240,12 @@ public class Busqueda extends JFrame {
 		modeloHuesped.addColumn("Telefono");
 		modeloHuesped.addColumn("Número de Reserva");
 		tbHuespedes.setModel(modeloHuesped);
+		tbHuespedes.getColumnModel().getColumn(1).setCellEditor(new ValidarTexto());
+		tbHuespedes.getColumnModel().getColumn(2).setCellEditor(new ValidarTexto());
+		tbHuespedes.getColumnModel().getColumn(3).setCellEditor(new CalendarCellEditor());
+		tbHuespedes.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(nacionalidad()));
+		tbHuespedes.getColumnModel().getColumn(5).setCellEditor(new ValidarNumero());
+		tbHuespedes.getColumnModel().getColumn(6).setCellEditor(new ValidarNumero());
 		JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
 		panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")),
 				scroll_tableHuespedes, null);
@@ -216,6 +254,7 @@ public class Busqueda extends JFrame {
 			tbUsuarios = new JTable();
 			tbUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			tbUsuarios.setFont(new Font("Roboto", Font.PLAIN, 16));
+			tbUsuarios.setRowHeight(20);
 			modeloUsuario = new DefaultTableModel() {
 				@Override
 				public boolean isCellEditable(int row, int column) {
@@ -227,6 +266,7 @@ public class Busqueda extends JFrame {
 			modeloUsuario.addColumn("Contraseña");
 			modeloUsuario.addColumn("Tipo de Usuario");
 			tbUsuarios.setModel(modeloUsuario);
+			tbUsuarios.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(tipoUsuario()));
 			JScrollPane scroll_tableUsuarios = new JScrollPane(tbUsuarios);
 			panel.addTab("Usuarios", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")), 
 					scroll_tableUsuarios,null);			
@@ -444,6 +484,7 @@ public class Busqueda extends JFrame {
 	}
 	
 	private void listarReservas() {
+		cargarDatos = true;
 		modeloReserva.getDataVector().clear();
 		tbReservas.setRowSorter(null);
 		List<Reserva> lista = reservaController.listarReservas();
@@ -456,6 +497,7 @@ public class Busqueda extends JFrame {
 					reserva.getFormaDePago()
 			});
 		}
+		cargarDatos = false;
 	}
 	
 	private void listarHuespedes() {
@@ -566,9 +608,9 @@ public class Busqueda extends JFrame {
             Integer id = Integer.valueOf(modeloReserva.getValueAt(tbReservas.getSelectedRow(), 0).toString());
             String fechaEntrada = String.valueOf(modeloReserva.getValueAt(tbReservas.getSelectedRow(), 1));
             String fechaSalida = String.valueOf(modeloReserva.getValueAt(tbReservas.getSelectedRow(), 2));
-            Float valor = Float.valueOf(modeloReserva.getValueAt(tbReservas.getSelectedRow(), 3).toString());                  
+            String valor = (String) modeloReserva.getValueAt(tbReservas.getSelectedRow(), 3);                  
             String formaDePago = (String)modeloReserva.getValueAt(tbReservas.getSelectedRow(), 4);                                     
-            Reserva reserva = new Reserva(id, java.sql.Date.valueOf(fechaEntrada), java.sql.Date.valueOf(fechaSalida), valor, formaDePago);
+            Reserva reserva = new Reserva(id, java.sql.Date.valueOf(fechaEntrada), java.sql.Date.valueOf(fechaSalida), Float.parseFloat(valor), formaDePago);
             this.reservaController.modificarReserva(reserva);
             JOptionPane.showMessageDialog(this, "Registro actualizado con éxito!");
             listarReservas();
@@ -582,4 +624,68 @@ public class Busqueda extends JFrame {
                 IntStream.range(0, tabla.getModel().getColumnCount()).toArray()));
         tabla.setRowSorter(sorter);
     }
+    
+    private JComboBox<String> tipoUsuario() {
+    	JComboBox<String> cbTipoUsuario = new JComboBox<String>();
+		cbTipoUsuario.setBackground(Color.WHITE);
+		cbTipoUsuario.setModel(new DefaultComboBoxModel<String>(new String[] { "Empleado", "Administrador" }));
+		cbTipoUsuario.setFont(new Font("Roboto", Font.PLAIN, 14));
+		cbTipoUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		return cbTipoUsuario;
+    }
+    
+    private JComboBox<String> formaDePago(){
+    	JComboBox<String> cbFormaPago = new JComboBox<String>();
+    	cbFormaPago.setBackground(Color.WHITE);
+    	cbFormaPago.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    	cbFormaPago.setFont(new Font("Roboto", Font.PLAIN, 14));
+    	cbFormaPago.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Tarjeta de Crédito", "Tarjeta de Débito", "Dinero en efectivo" }));
+		return cbFormaPago;
+    }
+    
+    private JComboBox<String> nacionalidad(){
+    	JComboBox<String> cbNacionalidad = new JComboBox<String>();
+    	cbNacionalidad.setBackground(Color.WHITE);
+    	cbNacionalidad.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+    	cbNacionalidad.setFont(new Font("Roboto", Font.PLAIN, 14));
+    	cbNacionalidad.setModel(new DefaultComboBoxModel<String>(new String[] { "afgano-afgana", "alemán-", "alemana",
+				"árabe-árabe", "argentino-argentina", "australiano-australiana", "belga-belga", "boliviano-boliviana",
+				"brasileño-brasileña", "camboyano-camboyana", "canadiense-canadiense", "chileno-chilena", "chino-china",
+				"colombiano-colombiana", "coreano-coreana", "costarricense-costarricense", "cubano-cubana",
+				"danés-danesa", "ecuatoriano-ecuatoriana", "egipcio-egipcia", "salvadoreño-salvadoreña",
+				"escocés-escocesa", "español-española", "estadounidense-estadounidense", "estonio-estonia",
+				"etiope-etiope", "filipino-filipina", "finlandés-finlandesa", "francés-francesa", "galés-galesa",
+				"griego-griega", "guatemalteco-guatemalteca", "haitiano-haitiana", "holandés-holandesa",
+				"hondureño-hondureña", "indonés-indonesa", "inglés-inglesa", "iraquí-iraquí", "iraní-iraní",
+				"irlandés-irlandesa", "israelí-israelí", "italiano-italiana", "japonés-japonesa", "jordano-jordana",
+				"laosiano-laosiana", "letón-letona", "letonés-letonesa", "malayo-malaya", "marroquí-marroquí",
+				"mexicano-mexicana", "nicaragüense-nicaragüense", "noruego-noruega", "neozelandés-neozelandesa",
+				"panameño-panameña", "paraguayo-paraguaya", "peruano-peruana", "polaco-polaca", "portugués-portuguesa",
+				"puertorriqueño-puertorriqueño", "dominicano-dominicana", "rumano-rumana", "ruso-rusa", "sueco-sueca",
+				"suizo-suiza", "tailandés-tailandesa", "taiwanes-taiwanesa", "turco-turca", "ucraniano-ucraniana",
+				"uruguayo-uruguaya", "venezolano-venezolana", "vietnamita-vietnamita" }));
+    	return cbNacionalidad;
+    }
+    
+	private void calcularValor() {
+		int filaSeleccionada = tbReservas.getSelectedRow();
+		if(filaSeleccionada != -1) {
+			SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+	        String fechaEntrada = String.valueOf(modeloReserva.getValueAt(filaSeleccionada, 1));
+	        String fechaSalida = String.valueOf(modeloReserva.getValueAt(filaSeleccionada, 2));
+	        Date FechaE = null;
+	        Date FechaS = null;
+	        try {
+		        FechaE = formato.parse(fechaEntrada);
+		        FechaS = formato.parse(fechaSalida);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+			if(FechaE != null && FechaS != null) {
+				String valor = calcularValorReserva.calcularValor(FechaE, FechaS);
+				modeloReserva.setValueAt(valor, filaSeleccionada, 3);
+			}
+		}
+	}
 }
