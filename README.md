@@ -6,33 +6,54 @@
 
 ---
 ##  📋 Índice
-#### 🔹 Descripción del proyecto
-#### 🔹 Script base de datos
-#### 🔹 Ejecutable
-#### 🔹 Funcionalidades
-#### 🔹 Tecnologías utilizadas
-#### 🔹 Desarrollador
+#### 🔹 [Descripción del proyecto](#Descripción)
+#### 🔹 [Script base de datos](#scriptDB)
+#### 🔹 [Ejecutable](#ejecutable)
+#### 🔹 [Funcionalidades](#funcionalidades)
+#### 🔹 [Tecnologías utilizadas](#tecnologiasUtilizadas)
+#### 🔹 [Desarrollador](#desarrollador)
 
 ---
-## 📑 Descripción del proyecto
+## 📑 Descripción del proyecto<a name=""></a>
 Aplicación de escritorio para hotel que permite crear empleados, crear reservas, huespedes y calcula el valor que se tiene que pagar por el hospedaje. Cuenta con una pestaña de busqueda donde se pueden consultar las reservar, los huespedes, los usuarios y se pueden editar o eliminar los registros.
 
 ---
-## Script base de datos
+## 📊 Script base de datos<a name=""></a>
 Para crear la base de datos se utiliza MySql y se ejecuta el script de la carpeta 📁 Script base de datos.
 
 <p align="center" >
-     <img width="300" heigth="300" src="https://user-images.githubusercontent.com/91544872/189419040-c093db78-c970-4960-8aca-ffcc11f7ffaf.png">
+     <img width="300" heigth="300" src="imagenes/Script_Base_de_Datos.png">
 </p>
 
 ---
-## 🖥️ Tecnologías Utilizadas:
+## ⬇️ Ejecutable<a name=""></a>
+Luego de ejecutar el script base de datos se puede probar el proyecto mediante el archivo .jar que está en la 📁 Ejecutable.
+
+<p align="center" >
+     <img width="300" heigth="300" src="imagenes/Ejecutable.png">
+</p>
+
+---
+## 🖥️ Tecnologías Utilizadas<a name=""></a>
 
 - Java
 - Eclipse
 - Biblioteca JCalendar
 - MySql
 - Plugin WindowBuilder </br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 ## ⚠️ Importante! ⚠️
