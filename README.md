@@ -88,4 +88,6 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
 ---
 ## Desarrollador<a name="desarrollador"></a>
 👨‍💻 <strong>Edwin Córdoba</strong></br>
-[![Perfil linkedIn]([ruta_de_la_imagen](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white))]([url_del_enlace](https://www.linkedin.com/in/edwin-reifer-cordoba-diaz)){target="_blank"}
+[![Perfil linkedIn](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/edwin-reifer-cordoba-diaz){target="_blank"}
+
+[![Logo de Google](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)](https://www.google.com){target="_blank"}
