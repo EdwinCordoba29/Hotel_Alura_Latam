@@ -87,5 +87,5 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
 
 ---
 ## Desarrollador<a name="desarrollador"></a>
-<a href="https://www.linkedin.com/in/edwin-reifer-cordoba-diaz" target="_blank">👨‍💻 <strong>Edwin Córdoba</strong></a>
-<img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+👨‍💻 <strong>Edwin Córdoba</strong></br>
+[![Perfil linkedIn]([ruta_de_la_imagen](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white))]([url_del_enlace](https://www.linkedin.com/in/edwin-reifer-cordoba-diaz)){target="_blank"}
