@@ -19,6 +19,7 @@
 ## 📑 Descripción del proyecto<a name="descripcion"></a>
 Aplicación de escritorio para hotel que permite crear empleados, crear reservas, huespedes y calcula el valor que se tiene que pagar por el hospedaje. Cuenta con una pestaña de busqueda donde se pueden consultar las reservar, los huespedes, los usuarios y se pueden editar o eliminar los registros.
 </br>
+</br>
 
 ---
 ## 📊 Script base de datos<a name="script"></a>
@@ -86,6 +87,6 @@ Mediante el botón busqueda se pueden consultar, modificar y eliminar las reserv
 
 ---
 ## Desarrollador<a name="desarrollador"></a>
-💙 <strong>Edwin Córdoba</strong></br>
+👨‍💻 <strong>Edwin Córdoba</strong></br>
 <a href="https://www.linkedin.com/in/edwin-reifer-cordoba-diaz" target="_blank">
 <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
