@@ -68,7 +68,7 @@ Botón usuario habilitado solo para perfiles con rol de Administrador.
 </br>
 
 #### 🔹Búsquedas
-Mediante el botón busqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
+Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
 
 <p align="center" >
      <img width="700" heigth="700" src="imagenes/busquedas.gif">
