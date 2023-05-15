@@ -3,6 +3,7 @@
 <p align="center" >
      <img width="300" heigth="300" src="https://user-images.githubusercontent.com/91544872/189419040-c093db78-c970-4960-8aca-ffcc11f7ffaf.png">
 </p>
+</br>
 
 ---
 ##  📋 Índice
@@ -12,10 +13,12 @@
 #### 🔹 [Funcionalidades](#funcionalidades)
 #### 🔹 [Tecnologías utilizadas](#tecnologiasUtilizadas)
 #### 🔹 [Desarrollador](#desarrollador)
+</br>
 
 ---
 ## 📑 Descripción del proyecto<a name="descripcion"></a>
 Aplicación de escritorio para hotel que permite crear empleados, crear reservas, huespedes y calcula el valor que se tiene que pagar por el hospedaje. Cuenta con una pestaña de busqueda donde se pueden consultar las reservar, los huespedes, los usuarios y se pueden editar o eliminar los registros.
+</br>
 
 ---
 ## 📊 Script base de datos<a name="script"></a>
@@ -24,6 +27,7 @@ Para crear la base de datos se utiliza MySql y se ejecuta el script de la carpet
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Script_Base_de_Datos.png">
 </p>
+</br>
 
 ---
 ## ⬇️ Ejecutable<a name="ejecutable"></a>
@@ -32,6 +36,7 @@ Luego de ejecutar el script base de datos se puede probar el proyecto mediante e
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Ejecutable.png">
 </p>
+</br>
 
 ---
 ## 🎨 Funcionalidades<a name="funcionalidades"></a>
@@ -77,6 +82,7 @@ Mediante el botón busqueda se pueden consultar, modificar y eliminar las reserv
 🔹 Biblioteca JCalendar</br>
 🔹 MySql</br>
 🔹 Plugin WindowBuilder </br>
+</br>
 
 ---
 ## Desarrollador<a name="desarrollador"></a>
