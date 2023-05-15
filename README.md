@@ -37,7 +37,7 @@ Luego de ejecutar el script base de datos se puede probar el proyecto mediante e
 ## 🎨 Funcionalidades<a name="funcionalidades"></a>
 
 #### 🔹Inicio de sesión
-Si ejecuto el script de de la carpeta 📁 Script base de datos, los datos de inicio de sesión por defecto son:
+Si ejecuto el script de de la carpeta 📁 Script base de datos, los datos de inicio de sesión por defecto son:</br>
 👤 usuario: admin</br>
 ⛔ contraseña: admin
 
@@ -62,7 +62,7 @@ Botón usuario habilitado solo para perfiles con rol de Administrador.
 </br>
 
 #### 🔹Busquedas
-Mediante el botón busqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios.
+Mediante el botón busqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
 
 <p align="center" >
      <img width="700" heigth="700" src="imagenes/busquedas.gif">
@@ -72,14 +72,14 @@ Mediante el botón busqueda se pueden consultar, modificar y eliminar las reserv
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasUtilizadas"></a>
 
-🔹 Java
-🔹 Eclipse
-🔹 Biblioteca JCalendar
-🔹 MySql
+🔹 Java</br>
+🔹 Eclipse</br>
+🔹 Biblioteca JCalendar</br>
+🔹 MySql</br>
 🔹 Plugin WindowBuilder </br>
 
 ---
 ## Desarrollador<a name="desarrollador"></a>
 💙 <strong>Edwin Córdoba</strong></br>
-<a href="https://co.linkedin.com/in/edwin-reifer-cordoba-diaz" target="_blank">
+<a href="https://www.linkedin.com/in/edwin-reifer-cordoba-diaz" target="_blank">
 <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
