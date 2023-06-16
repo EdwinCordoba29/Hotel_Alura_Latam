@@ -42,7 +42,8 @@ public class Login extends JFrame {
 	private UsuarioController usuarioController;
 	private Usuario usuario;
 	private MenuUsuario menu;
-	private static String tipoUsuario;
+	public static String tipoUsuario;
+	public static String user;
 
 	/**
 	 * Launch the application.
@@ -268,6 +269,7 @@ public class Login extends JFrame {
 
 		if (usuario.getUsuario() != null) {
 			tipoUsuario = usuario.getTipoUsuario();
+			user = usuario.getUsuario();
 			menu = new MenuUsuario();
 			menu.setVisible(true);
 			dispose();
@@ -288,10 +290,5 @@ public class Login extends JFrame {
 		
 		Point punto = MouseInfo.getPointerInfo().getLocation();
 		this.setLocation(punto.x - xMouse, punto.y - yMouse);
-	}
-	
-	//Propiedades
-	public static String getTipoUsuario() {
-		return tipoUsuario;
 	}
 }

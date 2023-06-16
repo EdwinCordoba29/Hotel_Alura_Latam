@@ -250,7 +250,7 @@ public class Busqueda extends JFrame {
 		panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")),
 				scroll_tableHuespedes, null);
 		
-		if("Administrador".equals(Login.getTipoUsuario())) {
+		if("Administrador".equals(Login.tipoUsuario)) {
 			tbUsuarios = new JTable();
 			tbUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			tbUsuarios.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -263,10 +263,9 @@ public class Busqueda extends JFrame {
 			};
 			modeloUsuario.addColumn("Numero de Usuario");
 			modeloUsuario.addColumn("Usuario");
-			modeloUsuario.addColumn("Contraseña");
 			modeloUsuario.addColumn("Tipo de Usuario");
 			tbUsuarios.setModel(modeloUsuario);
-			tbUsuarios.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(tipoUsuario()));
+			tbUsuarios.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(tipoUsuario()));
 			JScrollPane scroll_tableUsuarios = new JScrollPane(tbUsuarios);
 			panel.addTab("Usuarios", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")), 
 					scroll_tableUsuarios,null);			
@@ -477,7 +476,6 @@ public class Busqueda extends JFrame {
 			modeloUsuario.addRow(new Object[] {
 					usuario.getId(),
 					usuario.getUsuario(),
-					usuario.getClave(),
 					usuario.getTipoUsuario()
 			});
 		}
@@ -568,9 +566,11 @@ public class Busqueda extends JFrame {
         .ifPresentOrElse(fila -> {
             Integer id = Integer.valueOf(modeloUsuario.getValueAt(tbUsuarios.getSelectedRow(), 0).toString());
             String user = (String) modeloUsuario.getValueAt(tbUsuarios.getSelectedRow(), 1);
-            String clave = (String) modeloUsuario.getValueAt(tbUsuarios.getSelectedRow(), 2);
-            String tipoUsuario = (String)modeloUsuario.getValueAt(tbUsuarios.getSelectedRow(), 3);                   
-            Usuario usuario = new Usuario(id, user, clave, tipoUsuario);            
+            String tipoUsuario = (String)modeloUsuario.getValueAt(tbUsuarios.getSelectedRow(), 2);                   
+            Usuario usuario = new Usuario(); 
+            usuario.setId(id);
+            usuario.setUsuario(user);
+            usuario.setTipoUsuario(tipoUsuario);
             this.usuarioController.modificarUsuario(usuario);
             JOptionPane.showMessageDialog(this, "Registro actualizado con éxito!");
             listarUsuarios();

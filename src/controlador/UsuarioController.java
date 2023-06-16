@@ -42,8 +42,11 @@ public class UsuarioController {
 	}
 
 	public void modificarUsuario(Usuario usuario) {
-		String pass = new EncryptPassword().passwordEncrypt(usuario.getClave());
-		usuario.setClave(pass);
 		usuarioDAO.modificarUsuario(usuario);
+	}
+	
+	public void cambiarContrasena(String usuario, String contrasena) {
+		String pass = new EncryptPassword().passwordEncrypt(contrasena);
+		usuarioDAO.cambiarContrasena(usuario, pass);
 	}
 }

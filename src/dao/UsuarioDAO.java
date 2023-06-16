@@ -98,7 +98,6 @@ public class UsuarioDAO {
 						Usuario usuario = new Usuario();
 						usuario.setId(rs.getInt("id"));
 						usuario.setUsuario(rs.getString("usuario"));
-						usuario.setClave(rs.getString("clave"));
 						usuario.setTipoUsuario(rs.getString("tipo_usuario"));
 						lista.add(usuario);
 					}
@@ -124,14 +123,27 @@ public class UsuarioDAO {
 	}
 
 	public void modificarUsuario(Usuario usuario) {
-		String sql = "UPDATE usuarios SET usuario = ?, clave = ?, tipo_usuario = ? WHERE id = ?";
+		String sql = "UPDATE usuarios SET usuario = ?, tipo_usuario = ? WHERE id = ?";
 		try {
 			final PreparedStatement ps = con.prepareStatement(sql);
 			try(ps){
 				ps.setString(1, usuario.getUsuario());
-				ps.setString(2, usuario.getClave());
-				ps.setString(3, usuario.getTipoUsuario());
-				ps.setInt(4, usuario.getId());
+				ps.setString(2, usuario.getTipoUsuario());
+				ps.setInt(3, usuario.getId());
+				ps.execute();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}		
+	}
+	
+	public void cambiarContrasena(String usuario, String contrasena) {
+		String sql = "UPDATE usuarios SET clave = ? WHERE usuario = ?";
+		try {
+			final PreparedStatement ps = con.prepareStatement(sql);
+			try(ps){
+				ps.setString(1, contrasena);
+				ps.setString(2, usuario);
 				ps.execute();
 			}
 		} catch (Exception e) {

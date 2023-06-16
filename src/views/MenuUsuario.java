@@ -16,12 +16,16 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import controlador.UsuarioController;
+
+import javax.swing.JPasswordField;
 import utilidades.UtilSalir;
 
 @SuppressWarnings("serial")
@@ -30,6 +34,8 @@ public class MenuUsuario extends JFrame {
 	private JPanel contentPane;
 	int xMouse, yMouse;
 	private JLabel labelExit;
+	private JLabel lblCambiarContrasena;
+	private UsuarioController usuarioController;
 
 	/**
 	 * Launch the application.
@@ -52,6 +58,7 @@ public class MenuUsuario extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuUsuario() {
+		usuarioController = new UsuarioController();
 		setMinimumSize(new Dimension(944, 609));
 		setMaximumSize(new Dimension(944, 609));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuUsuario.class.getResource("/imagenes/aH-40px.png")));
@@ -159,7 +166,7 @@ public class MenuUsuario extends JFrame {
 		separator.setBounds(26, 219, 201, 2);
 		panelMenu.add(separator);
 		
-		if("Administrador".equals(Login.getTipoUsuario())) {
+		if("Administrador".equals(Login.tipoUsuario)) {
 			JPanel btnUsuario = new JPanel();
 			btnUsuario.addMouseListener(new MouseAdapter() {
 				@Override
@@ -287,6 +294,39 @@ public class MenuUsuario extends JFrame {
 		lblNewLabel_3_2.setFont(new Font("Roboto", Font.PLAIN, 17));
 		lblNewLabel_3_2.setBounds(312, 520, 295, 27);
 		contentPane.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("Usuario: " + Login.user);
+		lblNewLabel_4.setFont(new Font("Dialog", Font.PLAIN, 24));
+		lblNewLabel_4.setBounds(267, 47, 355, 26);
+		contentPane.add(lblNewLabel_4);
+		
+		JPanel cambiarContrasena = new JPanel();
+		cambiarContrasena.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cambiarContrasena();
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				cambiarContrasena.setBackground(Color.gray);
+				lblCambiarContrasena.setForeground(Color.white);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				cambiarContrasena.setBackground(Color.white);
+				lblCambiarContrasena.setForeground(Color.black);
+			}
+		});
+		cambiarContrasena.setLayout(null);
+		cambiarContrasena.setBackground(Color.WHITE);
+		cambiarContrasena.setBounds(784, 45, 160, 30);
+		contentPane.add(cambiarContrasena);
+		
+		lblCambiarContrasena = new JLabel("Cambiar Contraseña");
+		lblCambiarContrasena.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCambiarContrasena.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblCambiarContrasena.setBounds(0, 0, 160, 30);
+		cambiarContrasena.add(lblCambiarContrasena);
 	}
 
 	private void headerMousePressed(java.awt.event.MouseEvent evt) {
@@ -301,5 +341,23 @@ public class MenuUsuario extends JFrame {
 
 		Point punto = MouseInfo.getPointerInfo().getLocation();
 		this.setLocation(punto.x - xMouse, punto.y - yMouse);
+	}
+	
+	private void cambiarContrasena() {
+	    JPanel panel = new JPanel();
+	    JLabel label = new JLabel("Contraseña:");
+	    JPasswordField passwordField = new JPasswordField(20);
+	    panel.add(label);
+	    panel.add(passwordField);
+	    String[] options = new String[]{"Cambiar", "Cancelar"};
+
+	    int option = JOptionPane.showOptionDialog(null, panel, "Cambio de Contraseña",
+	            JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+	            null, options, options[1]);
+	    if(option == 0){
+	    	usuarioController.cambiarContrasena(Login.user, String.valueOf(passwordField.getPassword()));
+			JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente", "Cambio de Contraseña",
+					JOptionPane.INFORMATION_MESSAGE);
+	    }
 	}
 }
