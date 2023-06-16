@@ -8,7 +8,7 @@
 ---
 ##  📋 Índice
 #### 🔹 [Descripción del proyecto](#descripcion)
-#### 🔹 [Script base de datos](#script)
+#### 🔹 [Base de datos](#basededatos)
 #### 🔹 [Ejecutable](#ejecutable)
 #### 🔹 [Funcionalidades](#funcionalidades)
 #### 🔹 [Tecnologías utilizadas](#tecnologiasUtilizadas)
@@ -22,9 +22,16 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 </br>
 
 ---
-## 📊 Script base de datos<a name="script"></a>
-Para crear la base de datos se utiliza MySql y se ejecuta el script de la carpeta 📁 Script base de datos.
-
+## 📊 Base de datos<a name="basededatos"></a>
+- Para crear la base de datos instale MySql versión 8.0.32.
+- Configure el usuario y clave de la base de datos en el archivo src/factory/ConnectionFactory.java
+</br>
+<p align="center" >
+     <img width="300" heigth="300" src="imagenes/Configurar_Base_de_Datos.png">
+</p>
+</br>
+- Ejecuta el script de la carpeta 📁 Script base de datos.
+</br>  
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Script_Base_de_Datos.png">
 </p>
@@ -32,8 +39,22 @@ Para crear la base de datos se utiliza MySql y se ejecuta el script de la carpet
 
 ---
 ## ⬇️ Ejecutable<a name="ejecutable"></a>
-Luego de ejecutar el script base de datos se puede probar el proyecto mediante el archivo .jar que está en la carpeta 📁 Ejecutable.
+Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 
+- Clic derecho sobre el proyecto y luego clic en export.
+</br>
+<p align="center" >
+     <img width="300" heigth="300" src="imagenes/Export.png">
+</p>
+- Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
+</br>
+<p align="center" >
+     <img width="300" heigth="300" src="imagenes/Runnable.png">
+</p>
+- En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
+- Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
+- Y por último damos clic en Finish.
+</br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Ejecutable.png">
 </p>
@@ -43,7 +64,7 @@ Luego de ejecutar el script base de datos se puede probar el proyecto mediante e
 ## 🎨 Funcionalidades<a name="funcionalidades"></a>
 
 #### 🔹Inicio de sesión
-Si ejecuto el script de de la carpeta 📁 Script base de datos, los datos de inicio de sesión por defecto son:</br>
+Si ejecuto el script de la carpeta 📁 Script base de datos, los datos de inicio de sesión por defecto son:</br>
 👤 usuario: admin</br>
 ⛔ contraseña: admin
 
