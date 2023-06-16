@@ -23,14 +23,14 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 
 ---
 ## 📊 Base de datos<a name="basededatos"></a>
-- Para crear la base de datos instale MySql versión 8.0.32.
-- Configure el usuario y clave de la base de datos en el archivo src/factory/ConnectionFactory.java
+▪️ Para crear la base de datos instale MySql versión 8.0.32.
+▪️ Configure el usuario y clave de la base de datos en el archivo src/factory/ConnectionFactory.java
 </br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Configurar_Base_de_Datos.png">
 </p>
 </br>
-- Ejecuta el script de la carpeta 📁 Script base de datos.
+▪️ Ejecuta el script de la carpeta 📁 Script base de datos.
 </br>  
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Script_Base_de_Datos.png">
@@ -41,21 +41,21 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 ## ⬇️ Ejecutable<a name="ejecutable"></a>
 Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 
-- Clic derecho sobre el proyecto y luego clic en export.
+▪️ Clic derecho sobre el proyecto y luego clic en export.
 </br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Export.png">
 </p>
 </br>
-- Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
+▪️ Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
 </br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Runnable.png">
 </p>
 </br>
-- En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
-- Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
-- Y por último damos clic en Finish.
+▪️ En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
+▪️ Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
+▪️ Y por último damos clic en Finish.
 </br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Ejecutable.png">
