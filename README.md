@@ -46,11 +46,13 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Export.png">
 </p>
+</br>
 - Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
 </br>
 <p align="center" >
      <img width="300" heigth="300" src="imagenes/Runnable.png">
 </p>
+</br>
 - En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
 - Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
 - Y por último damos clic en Finish.
