@@ -54,7 +54,9 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 </p>
 </br>
 ▪️ En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
+</br>
 ▪️ Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
+</br>
 ▪️ Y por último damos clic en Finish.
 </br>
 <p align="center" >
