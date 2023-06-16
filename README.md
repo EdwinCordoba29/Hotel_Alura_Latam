@@ -24,6 +24,7 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 ---
 ## 📊 Base de datos<a name="basededatos"></a>
 ▪️ Para crear la base de datos instale MySql versión 8.0.32.
+</br>
 ▪️ Configure el usuario y clave de la base de datos en el archivo src/factory/ConnectionFactory.java
 </br>
 <p align="center" >
