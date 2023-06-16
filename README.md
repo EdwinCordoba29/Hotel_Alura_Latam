@@ -11,7 +11,7 @@
 #### 🔹 [Base de datos](#basededatos)
 #### 🔹 [Ejecutable](#ejecutable)
 #### 🔹 [Funcionalidades](#funcionalidades)
-#### 🔹 [Tecnologías utilizadas](#tecnologiasUtilizadas)
+#### 🔹 [Tecnologías utilizadas](#tecnologiasutilizadas)
 #### 🔹 [Desarrollador](#desarrollador)
 </br>
 
@@ -101,7 +101,7 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
 </br>
 
 ---
-## 🖥️ Tecnologías Utilizadas<a name="tecnologiasUtilizadas"></a>
+## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
 
 🔹 Java</br>
 🔹 Eclipse</br>
