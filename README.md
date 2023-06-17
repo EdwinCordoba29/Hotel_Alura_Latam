@@ -85,7 +85,7 @@ Botón para realizar el registro de las reservas y los huéspedes.
 Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
 </br>
 <p align="center" >
-     <video width="700" heigth="700" src="imagenes/Funciones.mkv"></video>
+     <img width="700" heigth="700" src="imagenes/Funciones.gif">
 </p>
 </br>
 
