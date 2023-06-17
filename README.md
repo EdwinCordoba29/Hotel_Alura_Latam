@@ -77,7 +77,7 @@ Si ejecuto el script de la carpeta 📁 Script base de datos, los datos de inici
 Botón usuario habilitado solo para perfiles con rol de Administrador.
 </br>
 #### 🔹Registro de reservas
-Botón para realizar el de las reservas y los huéspedes.
+Botón para realizar el registro de las reservas y los huéspedes.
 </br>
 #### 🔹Búsquedas
 Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
