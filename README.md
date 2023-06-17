@@ -54,11 +54,13 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
      <img width="700" heigth="700" src="imagenes/Runnable.png">
 </p>
 </br>
+</br>
 ▪️ En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
 </br>
 ▪️ Luego en Export Destination seleccionamo la ruta donde queremos que se guarde el ejecutable.
 </br>
 ▪️ Y por último damos clic en Finish.
+</br>
 </br>
 <p align="center" >
      <img width="700" heigth="700" src="imagenes/Ejecutable.png">
@@ -86,6 +88,7 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
      <video width="700" heigth="700" src="imagenes/Funciones.mkv"></video>
 </p>
 </br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0kUpLU-oj3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
