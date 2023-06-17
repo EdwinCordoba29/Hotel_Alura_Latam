@@ -72,35 +72,20 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 Si ejecuto el script de la carpeta 📁 Script base de datos, los datos de inicio de sesión por defecto son:</br>
 👤 usuario: admin</br>
 ⛔ contraseña: admin
-
-<p align="center" >
-     <img width="700" heigth="700" src="imagenes/inicio_de_sesion.gif">
-</p>
 </br>
-
 #### 🔹Registro de usuarios
 Botón usuario habilitado solo para perfiles con rol de Administrador.
-
-<p align="center" >
-     <img width="700" heigth="700" src="imagenes/usuarios.gif">
-</p>
 </br>
-
-#### 🔹Registro de reservas y huéspedes
-
-<p align="center" >
-     <img width="700" heigth="700" src="imagenes/Registro_reservas.gif">
-</p>
+#### 🔹Registro de reservas
+Botón para realizar el de las reservas y los huéspedes.
 </br>
-
 #### 🔹Búsquedas
 Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
-
+</br>
 <p align="center" >
-     <img width="700" heigth="700" src="imagenes/busquedas.gif">
+     <video width="700" heigth="700" src="imagenes/Funciones.mkv">
 </p>
 </br>
-
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
 
