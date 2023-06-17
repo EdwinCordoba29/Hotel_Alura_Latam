@@ -34,7 +34,7 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 ▪️ Ejecuta el script de la carpeta 📁 Script base de datos.
 </br>  
 <p align="center" >
-     <img width="700" heigth="700" src="imagenes/Script_Base_de_Datos.png">
+     <img width="400" heigth="400" src="imagenes/Script_Base_de_Datos.png">
 </p>
 </br>
 
