@@ -45,7 +45,7 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 ▪️ Clic derecho sobre el proyecto y luego clic en export.
 </br>
 <p align="center" >
-     <img width="700" heigth="700" src="imagenes/Export.png">
+     <img width="300" heigth="300" src="imagenes/Export.png">
 </p>
 </br>
 ▪️ Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
