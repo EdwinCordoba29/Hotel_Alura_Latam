@@ -28,13 +28,13 @@ Aplicación de escritorio para hotel que permite crear empleados, crear reservas
 ▪️ Configure el usuario y clave de la base de datos en el archivo src/factory/ConnectionFactory.java
 </br>
 <p align="center" >
-     <img width="300" heigth="300" src="imagenes/Configurar_Base_de_Datos.png">
+     <img width="700" heigth="700" src="imagenes/Configurar_Base_de_Datos.png">
 </p>
 </br>
 ▪️ Ejecuta el script de la carpeta 📁 Script base de datos.
 </br>  
 <p align="center" >
-     <img width="300" heigth="300" src="imagenes/Script_Base_de_Datos.png">
+     <img width="700" heigth="700" src="imagenes/Script_Base_de_Datos.png">
 </p>
 </br>
 
@@ -45,13 +45,13 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 ▪️ Clic derecho sobre el proyecto y luego clic en export.
 </br>
 <p align="center" >
-     <img width="300" heigth="300" src="imagenes/Export.png">
+     <img width="700" heigth="700" src="imagenes/Export.png">
 </p>
 </br>
 ▪️ Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
 </br>
 <p align="center" >
-     <img width="300" heigth="300" src="imagenes/Runnable.png">
+     <img width="700" heigth="700" src="imagenes/Runnable.png">
 </p>
 </br>
 ▪️ En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
@@ -61,7 +61,7 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 ▪️ Y por último damos clic en Finish.
 </br>
 <p align="center" >
-     <img width="300" heigth="300" src="imagenes/Ejecutable.png">
+     <img width="700" heigth="700" src="imagenes/Ejecutable.png">
 </p>
 </br>
 
@@ -83,7 +83,7 @@ Botón para realizar el registro de las reservas y los huéspedes.
 Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
 </br>
 <p align="center" >
-     <video width="700" heigth="700" src="imagenes/Funciones.mkv">
+     <video width="700" heigth="700" src="imagenes/Funciones.mkv"></video>
 </p>
 </br>
 
