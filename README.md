@@ -88,6 +88,7 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
      <video width="700" heigth="700" src="imagenes/Funciones.mp4"></video>
 </p>
 </br>
+![Funciones](imagenes/Ejecutable.png){width='700px' height='700px'}
 
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
