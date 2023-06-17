@@ -86,6 +86,7 @@ Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reser
      <video width="700" heigth="700" src="imagenes/Funciones.mkv">
 </p>
 </br>
+
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
 
