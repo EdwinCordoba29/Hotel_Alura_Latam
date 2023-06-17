@@ -159,19 +159,19 @@ public class Usuarios extends JFrame {
 		JLabel lblUsuario = new JLabel("USUARIO");
 		lblUsuario.setForeground(SystemColor.textInactiveText);
 		lblUsuario.setFont(new Font("Roboto Black", Font.PLAIN, 18));
-		lblUsuario.setBounds(560, 119, 253, 14);
+		lblUsuario.setBounds(560, 119, 253, 18);
 		panel.add(lblUsuario);
 
 		JLabel lblContrasea = new JLabel("CONTRASEÑA");
 		lblContrasea.setForeground(SystemColor.textInactiveText);
 		lblContrasea.setFont(new Font("Roboto Black", Font.PLAIN, 18));
-		lblContrasea.setBounds(560, 200, 253, 14);
+		lblContrasea.setBounds(560, 200, 253, 18);
 		panel.add(lblContrasea);
 
 		JLabel lblTipoUsuario = new JLabel("TIPO USUARIO");
 		lblTipoUsuario.setForeground(SystemColor.textInactiveText);
 		lblTipoUsuario.setFont(new Font("Roboto Black", Font.PLAIN, 18));
-		lblTipoUsuario.setBounds(560, 279, 169, 14);
+		lblTipoUsuario.setBounds(560, 279, 169, 18);
 		panel.add(lblTipoUsuario);
 
 		txtUsuario = new JTextField();

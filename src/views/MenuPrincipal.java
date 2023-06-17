@@ -56,7 +56,7 @@ public class MenuPrincipal extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
-		setLayout(null);
+		getContentPane().setLayout(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,7 +88,7 @@ public class MenuPrincipal extends JFrame {
 		panel_1.setLayout(null);
 
 		JLabel lblCopyR = new JLabel("Desarrollado por Fulanita de Tal © 2023");
-		lblCopyR.setBounds(315, 11, 284, 19);
+		lblCopyR.setBounds(315, 11, 300, 19);
 		lblCopyR.setForeground(new Color(240, 248, 255));
 		lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
 		panel_1.add(lblCopyR);

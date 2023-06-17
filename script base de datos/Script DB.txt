@@ -29,4 +29,4 @@ ENGINE=InnoDB;
 
 ALTER TABLE huespedes ADD FOREIGN KEY(id_reserva) REFERENCES reservas(id);
 
-INSERT INTO usuarios(usuario,clave,tipo_usuario) VALUES ('admin',sha2('admin',256),'Administrador');
+INSERT INTO usuarios(usuario,clave,tipo_usuario) VALUES ('admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918','Administrador');

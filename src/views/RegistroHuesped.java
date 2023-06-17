@@ -193,31 +193,31 @@ public class RegistroHuesped extends JFrame {
 		contentPane.add(txtNacionalidad);
 
 		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(562, 119, 253, 14);
+		lblNombre.setBounds(562, 115, 253, 18);
 		lblNombre.setForeground(SystemColor.textInactiveText);
 		lblNombre.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblNombre);
 
 		JLabel lblApellido = new JLabel("APELLIDO");
-		lblApellido.setBounds(560, 189, 255, 14);
+		lblApellido.setBounds(560, 185, 255, 18);
 		lblApellido.setForeground(SystemColor.textInactiveText);
 		lblApellido.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblApellido);
 
 		JLabel lblFechaN = new JLabel("FECHA DE NACIMIENTO");
-		lblFechaN.setBounds(560, 256, 255, 14);
+		lblFechaN.setBounds(560, 256, 255, 18);
 		lblFechaN.setForeground(SystemColor.textInactiveText);
 		lblFechaN.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblFechaN);
 
 		JLabel lblNacionalidad = new JLabel("NACIONALIDAD");
-		lblNacionalidad.setBounds(560, 326, 255, 14);
+		lblNacionalidad.setBounds(560, 326, 255, 18);
 		lblNacionalidad.setForeground(SystemColor.textInactiveText);
 		lblNacionalidad.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblNacionalidad);
 
 		JLabel lblTelefono = new JLabel("TELÉFONO");
-		lblTelefono.setBounds(562, 406, 253, 14);
+		lblTelefono.setBounds(562, 402, 253, 18);
 		lblTelefono.setForeground(SystemColor.textInactiveText);
 		lblTelefono.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblTelefono);
@@ -248,13 +248,13 @@ public class RegistroHuesped extends JFrame {
 		contentPane.add(txtTelefono);
 
 		JLabel lblTitulo = new JLabel("REGISTRO HUÉSPED");
-		lblTitulo.setBounds(606, 55, 234, 42);
+		lblTitulo.setBounds(606, 55, 240, 42);
 		lblTitulo.setForeground(new Color(12, 138, 199));
-		lblTitulo.setFont(new Font("Roboto Black", Font.PLAIN, 23));
+		lblTitulo.setFont(new Font("Dialog", Font.PLAIN, 23));
 		contentPane.add(lblTitulo);
 
 		JLabel lblNumeroReserva = new JLabel("NÚMERO DE RESERVA");
-		lblNumeroReserva.setBounds(560, 474, 253, 14);
+		lblNumeroReserva.setBounds(560, 472, 253, 18);
 		lblNumeroReserva.setForeground(SystemColor.textInactiveText);
 		lblNumeroReserva.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblNumeroReserva);
