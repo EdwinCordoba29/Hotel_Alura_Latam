@@ -50,10 +50,10 @@ Luego de ejecutar el script base de datos crear el ejecutable de la aplicación.
 </br>
 ▪️ Buscamos la carpeta Java, luego Runnable JAR file y damos clic en Next.
 </br>
+</br>
 <p align="center" >
      <img width="700" heigth="700" src="imagenes/Runnable.png">
 </p>
-</br>
 </br>
 ▪️ En Launch Configuration seleccionamos MenuPrincipal - AluraHotel-Esp-Base.
 </br>
@@ -85,10 +85,9 @@ Botón para realizar el registro de las reservas y los huéspedes.
 Mediante el botón búsqueda se pueden consultar, modificar y eliminar las reservas, huéspedes y usuarios(Habilitado solo para Administrador).
 </br>
 <p align="center" >
-     <video width="700" heigth="700" src="imagenes/Funciones.mkv"></video>
+     <video width="700" heigth="700" src="imagenes/Funciones.mp4"></video>
 </p>
 </br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0kUpLU-oj3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 ## 🖥️ Tecnologías Utilizadas<a name="tecnologiasutilizadas"></a>
